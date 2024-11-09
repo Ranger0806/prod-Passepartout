@@ -25,13 +25,13 @@
         <div id="form_reg">
         <form action="{% url 'firstapp:register_process' %}" method="post">
             {% csrf_token %}
-            <label for="name-input">Как вас называть?</label>
+            <label for="name-input">Имя</label>
             <input type="text" name="username" id="name-input">
-            <label for="email-input">Email</label>
+            <label for="email-input">Электронная почта</label>
             <input type="email" name="email" id="email-input">
-            <label for="password-input1">Password</label>
+            <label for="password-input1">Пароль</label>
             <input type="password" name="password1" id="password-input1">
-            <label for="password-input2">Подтвердите пароль</label>
+            <label for="password-input2">Повторите пароль</label>
             <input type="password" name="password2" id="password-input2">
             <input type="submit" value="Зарегистрироваться">
         </form>
