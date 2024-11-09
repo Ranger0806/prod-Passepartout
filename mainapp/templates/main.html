@@ -25,17 +25,18 @@
             <div>
                 <p>{{ event.date }}</p>
                 <p>{{ event.country }}</p>
+                <a href="{% url 'mainapp:download' %}"></a>
             </div>
         {% endfor %}
     {% else %}
         <div>
             <p>У вас еще нет поездок!</p>
-            <div id="add_tickets"><a href="{% url 'mainapp:add_trip' %}">Добавить поездку!</a></div>
         </div>
     {% endif %}
     {% if error %}
         <p>{{ error }}</p>
     {% endif %}
+<div id="add_tickets"><a href="{% url 'mainapp:add_trip' %}">Добавить поездку!</a></div>
 </section>
 </main>
 <footer>

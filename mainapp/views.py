@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from mainapp.models import Tickets, Files
+from mainapp.models import Tickets
 from django.contrib.auth.decorators import login_required
 
 
@@ -39,8 +39,6 @@ def process_add_trip(request):
                 file_read = file_upload.read()
                 trip = Tickets.objects.create(user_id=request.user.id, country=country, date=date)
                 trip.save()
-                f = Files.objects.create(ticket=trip.id, file=file_read)
-                f.save()
                 return redirect('mainapp:main')
             return render(request, 'add_trip.html', context={'error': 'Не все поля заполнены!'})
         except Exception as e:
@@ -49,3 +47,7 @@ def process_add_trip(request):
                 'error': "Something went wrong."
             }
             return render(request, 'add_trip.html', context=context)
+
+
+def download(request, id):
+    pass
