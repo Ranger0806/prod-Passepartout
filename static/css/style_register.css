@@ -66,10 +66,12 @@ form {
 
 label {
     display: block;
+    margin: 0.3rem;
 }
 
 input {
     display: block;
+    margin: 0.3rem;
 }
 
 footer {

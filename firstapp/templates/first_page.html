@@ -15,13 +15,22 @@
     <ul>
         <li><a href="{% url 'firstapp:register' %}" target="_self">Регистрация</a></li>
         <li><a href="{% url 'firstapp:authenticate' %}">Войти</a></li>
-        <li><a href="#">Выйти</a></li>
+        {% if auth %}
+            <li><a href="#">Выйти</a></li>
+        {% endif %}
     </ul>
 </header>
 <main>
     <section>
         <div id="about">
-            <p><img src="{% static 'images/image_manager.jpg' %}" alt="Менеджер путешествий" id="img_about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias blanditiis corporis culpa cupiditate dolores eum harum libero, molestiae nisi numquam obcaecati possimus quaerat, quas qui quibusdam quis quo voluptate!</p>
+            <p><img src="{% static 'images/first_page_img.webp' %}" alt="Менеджер путешествий" id="img_about">Добро пожаловать в Passepartout, ваш ультимативный помощник в любых путешествиях</p>
+            <br>
+            <p>Наши преимущетсва:</p>
+            <ul>
+                <li>Удобный поиск авиа и ж/д билетов</li>
+                <li>Просмотор и отслеживание ваших заказов</li>
+                <li>С нами путешествия еще более интересны и комфортны</li>
+            </ul>
         </div>
     </section>
 </main>

@@ -15,20 +15,35 @@
     <ul>
         <li><a href="{% url 'firstapp:register' %}">Регистрация</a></li>
         <li><a href="{% url 'firstapp:authenticate' %}">Войти</a></li>
-        <li><a href="#">Выйти</a></li>
+        {% if auth %}
+            <li><a href="#">Выйти</a></li>
+        {% endif %}
     </ul>
 </header>
 <main>
-    <div id="form_reg">
+    <section>
+        <div id="form_reg">
         <form action="{% url 'firstapp:register_process' %}" method="post">
+            {% csrf_token %}
             <label for="name-input">Как вас называть?</label>
             <input type="text" name="username" id="name-input">
             <label for="email-input">Email</label>
             <input type="email" name="email" id="email-input">
-            <label for="password-input">Password</label>
-            <input type="password" name="password" id="password-input">
+            <label for="password-input1">Password</label>
+            <input type="password" name="password1" id="password-input1">
+            <label for="password-input2">Подтвердите пароль</label>
+            <input type="password" name="password2" id="password-input2">
+            <input type="submit" value="Зарегистрироваться">
         </form>
     </div>
+    </section>
+    {% if error %}
+        <section>
+            <div>
+                <p>{{ error }}</p>
+            </div>
+        </section>
+    {% endif %}
 </main>
 <footer>
     <div><p>&copy Passepartout 2024</p></div>

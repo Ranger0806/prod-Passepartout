@@ -1,6 +1,7 @@
-from lib2to3.fixes.fix_input import context
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
+from .forms import ProjectUserRegisterForm
 
-from django.shortcuts import render
 
 # Create your views here.
 def main(request):
@@ -8,19 +9,39 @@ def main(request):
 
 
 def authentication(request):
-    if request.method == 'POST':
-        context = {
-            'auth': request.user.is_authenticated
-        }
-        return render(request, template_name='auth.html', context=context)
+    context = {
+        'auth': request.user.is_authenticated
+    }
+    return render(request, template_name='auth.html', context=context)
 
 
 def register(request):
-    return render(request, template_name='register.html')
+    context = {
+        'auth': request.user.is_authenticated
+    }
+    return render(request, template_name='register.html', context=context)
 
 
 def register_process(request):
-    return None
+    if request.method == 'POST':
+        try:
+            form = ProjectUserRegisterForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                user.save()
+            else:
+                context = {
+                    'error': form.errors
+                }
+                return render(request, template_name='register.html', context=context)
+            return redirect('firstapp:authenticate')
+        except Exception as e:
+            print(e)
+            context = {
+                'auth': request.user.is_authenticated,
+                'error': 'Ошибка регистрации, попробуйте снова.'
+            }
+            return render(request, template_name='register.html', context=context)
 
 
 def authorization(request):
@@ -28,4 +49,10 @@ def authorization(request):
 
 
 def authentication_process(request):
-    return None
+    if request.method == 'POST':
+        login_user = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(request, username=login_user, password=password)
+        if user:
+            login(request, user)
+            print("I love Muslim")
