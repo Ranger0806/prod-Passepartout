@@ -5,4 +5,7 @@ class Tickets(models.Model):
     user = models.ForeignKey(ProjectUser, on_delete=models.CASCADE)
     date = models.DateField()
     country = models.CharField(max_length=50)
-    ticket = models.BinaryField()
+
+class Files(models.Model):
+    ticket = models.ForeignKey(Tickets, on_delete=models.CASCADE)
+    file = models.BinaryField()

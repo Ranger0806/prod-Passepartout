@@ -23,9 +23,8 @@
     {% if content %}
         {% for event in content %}
             <div>
-                <p>event.date</p>
-                <p>event.ticket</p>
-                <p>event.country</p>
+                <p>{{ event.date }}</p>
+                <p>{{ event.country }}</p>
             </div>
         {% endfor %}
     {% else %}
@@ -33,6 +32,9 @@
             <p>У вас еще нет поездок!</p>
             <div id="add_tickets"><a href="{% url 'mainapp:add_trip' %}">Добавить поездку!</a></div>
         </div>
+    {% endif %}
+    {% if error %}
+        <p>{{ error }}</p>
     {% endif %}
 </section>
 </main>
