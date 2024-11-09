@@ -16,7 +16,7 @@
         <li><a href="{% url 'firstapp:register' %}">Регистрация</a></li>
         <li><a href="{% url 'firstapp:authenticate' %}">Войти</a></li>
         {% if auth %}
-            <li><a href="#">Выйти</a></li>
+            <li><a href="{% url 'firstapp:logout' %}">Выйти</a></li>
         {% endif %}
     </ul>
 </header>

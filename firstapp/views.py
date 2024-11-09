@@ -3,9 +3,13 @@ from django.shortcuts import render, redirect
 from .forms import ProjectUserRegisterForm
 
 
-# Create your views here.
 def main(request):
-    return render(request, template_name='first_page.html')
+    if request.user.is_authenticated:
+        return redirect('mainapp:main')
+    context = {
+        'auth': request.user.is_authenticated
+    }
+    return render(request, template_name='first_page.html', context=context)
 
 
 def authentication(request):
@@ -44,10 +48,6 @@ def register_process(request):
             return render(request, template_name='register.html', context=context)
 
 
-def authorization(request):
-    return None
-
-
 def authentication_process(request):
     if request.method == 'POST':
         login_user = request.POST['email']
@@ -55,4 +55,9 @@ def authentication_process(request):
         user = authenticate(request, username=login_user, password=password)
         if user:
             login(request, user)
-            print("I love Muslim")
+            return redirect('mainapp:main')
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('firstapp:authenticate')
