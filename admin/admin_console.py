@@ -27,18 +27,15 @@ class Database:
 
 
 def send_notification(notif_login, notif_pwd, user_email, text, theme):
-    message = MIMEMultipart()
-    message['From'] = notif_login
-    message['To'] = user_email
-    message['Subject'] = theme
-    message.attach(MIMEText(text, 'plain'))
+
+    message = f'Subject: {theme}\n\n{text}'
 
     try:
         smtp_server = smtplib.SMTP('smtp.yandex.ru', 587)
         smtp_server.starttls()
         smtp_server.ehlo()
         smtp_server.login(notif_login, notif_pwd)
-        smtp_server.sendmail(notif_login, user_email, message.as_string())
+        smtp_server.sendmail(notif_login, user_email, message)
         print("Сообщение успешно отправлено!")
         smtp_server.quit()
     except Exception as err:

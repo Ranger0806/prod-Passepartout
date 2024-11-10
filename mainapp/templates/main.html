@@ -22,13 +22,15 @@
 <main>
 <section>
     {% if content %}
+        <div class="info">
         {% for event in content %}
-            <div>
-                <p>{{ event.date }}</p>
+            <div class="info-travel">
+                <div class="travel">{{ event.date }}</div>
                 <p>{{ event.country }}</p>
                 <p>{{ event.price }}</p>
                 <a href="{% url 'mainapp:download' id=event.id %}" download>Загрузить</a>
             </div>
+        </div>
         {% endfor %}
     {% else %}
         <div>

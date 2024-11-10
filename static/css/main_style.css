@@ -67,3 +67,17 @@ a {
     }
 }
 
+.info {
+    padding: 16px;
+}
+
+.info-travel {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: 2px solid darkblue;
+    margin: 16px;
+}
+.travel {
+    padding: 16px;
+}
