@@ -4,6 +4,10 @@ from django.shortcuts import render, redirect
 from mainapp.models import Tickets
 from django.contrib.auth.decorators import login_required
 from datetime import date, datetime
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
 @login_required
@@ -27,6 +31,42 @@ def main(request):
 @login_required
 def add_trip(request):
     return render(request, 'add_trip.html')
+
+
+@swagger_auto_schema(
+    method='post',
+    operation_description="Получить данные с параметрами",
+    manual_parameters=[
+        openapi.Parameter('param', openapi.IN_QUERY, description="Пример параметра", type=openapi.TYPE_STRING)
+    ],
+    responses={200: openapi.Response('Success')},
+)
+@api_view(['POST'])
+@login_required
+def request_process_add_trip(request):
+    if request.method == 'POST':
+        try:
+            country = request.POST['country']
+            date_trip = request.POST['date_start']
+            date_end_trip = request.POST['date_end']
+            price = request.POST['price']
+            trip_plan = request.POST['trip_plan']
+            file_upload = request.FILES['file']
+            if datetime.strptime(date_trip, "%Y-%m-%d").date() < date.today():
+                return Response({'Status': 400})
+            if country and date and file_upload and price:
+                file_read = file_upload.read()
+                trip = Tickets.objects.create(user_id=request.user.id, country=country, date_start=date_trip, date_end=date_end_trip, ticket=file_read, price=price, trip_plan=trip_plan)
+                trip.save()
+                return Response({'Status': 200})
+            return Response({'Status': 400})
+        except Exception as e:
+            print(e)
+            context = {
+                'error': "Something went wrong."
+            }
+            return Response(context)
+
 
 @login_required
 def process_add_trip(request):

@@ -8,4 +8,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('register-process', views.register_process, name='register_process'),
     path('logout/', views.user_logout, name='logout'),
+    path('is-auth', views.is_authenticated, name='is_authenticated'),
+    path('request-register', views.request_register, name='request_register'),
+    path('request-authenticate', views.request_authenticate, name='request_authenticate' ),
 ]
