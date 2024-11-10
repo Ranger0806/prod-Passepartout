@@ -19,6 +19,11 @@ header {
     border-bottom: darkblue solid 1px;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
 header ul {
     display: flex;
     flex-direction: row;
@@ -75,4 +80,9 @@ input {
 
 footer {
     border-top: darkblue solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: bottom;
+    bottom: 0;
 }

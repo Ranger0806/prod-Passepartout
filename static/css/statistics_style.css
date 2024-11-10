@@ -19,6 +19,15 @@ header {
     border-bottom: darkblue solid 1px;
 }
 
+footer {
+    border-top: darkblue solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: bottom;
+    bottom: 0;
+}
+
 header ul {
     display: flex;
     flex-direction: row;
@@ -48,37 +57,27 @@ header ul li:hover {
     }
 }
 
-#form_reg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+a {
+    text-decoration: none;
+    color: darkblue;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-label {
+#add_tickets {
     display: block;
-    margin: 0.3rem;
+    border: darkblue solid 1px;
+    border-radius: 0.3rem;
+    text-align: center;
 }
 
-input {
-    display: block;
-    margin: 0.3rem;
+#add_tickets:hover {
+    background-color: darkblue;
+    & a {
+        color: white;
+    }
+}
+.info-about-trip {
+    border: darkblue solid 1px;
+    border-radius: 0.3rem;
+    padding: 10px;
 }
 
-footer {
-    border-top: darkblue solid 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: bottom;
-    bottom: 0;
-}

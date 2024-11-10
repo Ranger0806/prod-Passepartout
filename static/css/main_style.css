@@ -13,12 +13,27 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
 }
 
 header {
     border-bottom: darkblue solid 1px;
 }
 
+footer {
+    border-top: darkblue solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: bottom;
+    bottom: 0;
+}
 header ul {
     display: flex;
     flex-direction: row;
@@ -67,3 +82,18 @@ a {
     }
 }
 
+.info {
+    padding: 16px;
+
+}
+
+.info-travel {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: 2px solid darkblue;
+    margin: 16px;
+}
+.travel {
+    padding: 16px;
+}

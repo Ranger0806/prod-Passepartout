@@ -19,6 +19,15 @@ header {
     border-bottom: darkblue solid 1px;
 }
 
+footer {
+    border-top: darkblue solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: bottom;
+    bottom: 0;
+}
+
 header ul {
     display: flex;
     flex-direction: row;
@@ -48,37 +57,16 @@ header ul li:hover {
     }
 }
 
-#form_reg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+a {
+    text-decoration: none;
+    color: darkblue;
 }
 
 label {
     display: block;
-    margin: 0.3rem;
 }
 
 input {
     display: block;
-    margin: 0.3rem;
 }
 
-footer {
-    border-top: darkblue solid 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: bottom;
-    bottom: 0;
-}

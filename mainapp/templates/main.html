@@ -13,23 +13,24 @@
 <body>
 <header>
     <ul>
-        <li><a href="{% url 'firstapp:register' %}">Все путешествия</a></li>
+        <li><a href="{% url 'mainapp:main' %}">Все путешествия</a></li>
         <li><a href="{% url 'mainapp:statistics' %}">Статистика и достижения</a></li>
         <li><a href="{% url 'travelblog:blog' %}">О путешествиях</a></li>
         <li><a href="{% url 'firstapp:logout' %}">Выйти</a></li>
     </ul>
 </header>
 <main>
-<section>
     {% if content %}
+        <div class="info">
         {% for event in content %}
-            <div>
-                <p>{{ event.date }}</p>
-                <p>{{ event.country }}</p>
-                <p>{{ event.price }}</p>
-                <a href="{% url 'mainapp:download' id=event.id %}" download>Загрузить</a>
+            <div class="info-travel">
+                <div class="travel">{{ event.date }}</div>
+                <div class="travel">{{ event.country }}</div>
+                <div class="travel">{{ event.price }}</div>
+                <div class="travel"><a href="{% url 'mainapp:download' id=event.id %}" download>Скачать билет</a></div>
             </div>
         {% endfor %}
+        </div>
     {% else %}
         <div>
             <p>У вас еще нет поездок!</p>
@@ -39,7 +40,6 @@
         <p>{{ error }}</p>
     {% endif %}
 <div id="add_tickets"><a href="{% url 'mainapp:add_trip' %}">Добавить поездку!</a></div>
-</section>
 </main>
 <footer>
     <div><p>&copy Passepartout 2024</p></div>

@@ -60,3 +60,12 @@ label {
 input {
     display: block;
 }
+
+footer {
+    border-top: darkblue solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: bottom;
+    bottom: 0;
+}
