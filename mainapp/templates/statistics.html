@@ -1,13 +1,21 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head>>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../static/css/statistics_style.css">
     <title>Моя Статистика</title>
 </head>
 <body>
+<header>
+    <ul>
+        <li><a href="{% url 'mainapp:main' %}">Ваши билеты</a></li>
+        <li><a href="{% url 'mainapp:statistics' %}">Статистика и достижения</a></li>
+        <li><a href="{% url 'firstapp:logout' %}">Выйти</a></li>
+    </ul>
+</header>
 <main>
     <p>Количество посещенных стран: {{ count_country }} </p>
     <p>Цена поездок в текущем месяце: {{ sum_price_month }}</p>
@@ -27,5 +35,8 @@
         {% endfor %}
     {% endif %}
 </main>
+<footer>
+    <div><p>&copy Passepartout 2024</p></div>
+</footer>
 </body>
 </html>

@@ -13,13 +13,6 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex: 1;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-
 }
 
 header {
@@ -34,6 +27,7 @@ footer {
     position: bottom;
     bottom: 0;
 }
+
 header ul {
     display: flex;
     flex-direction: row;
@@ -81,26 +75,9 @@ a {
         color: white;
     }
 }
-
-.info {
-    padding: 16px;
-<<<<<<< HEAD
-=======
-
->>>>>>> 134389d49f1e2fc0858f0274b1a93aea64f59975
+.info-about-trip {
+    border: darkblue solid 1px;
+    border-radius: 0.3rem;
+    padding: 10px;
 }
 
-.info-travel {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
-    border: 2px solid darkblue;
-    margin: 16px;
-}
-.travel {
-    padding: 16px;
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 134389d49f1e2fc0858f0274b1a93aea64f59975
