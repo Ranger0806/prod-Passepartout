@@ -28,7 +28,6 @@ def main(request):
 def add_trip(request):
     return render(request, 'add_trip.html')
 
-
 @login_required
 def process_add_trip(request):
     if request.method == 'POST':

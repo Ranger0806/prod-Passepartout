@@ -21,28 +21,17 @@
 </header>
 <main>
 <section>
-    {% if content %}
-        {% for event in content %}
-            <div>
-                <p>{{ event.date }}</p>
-                <p>{{ event.country }}</p>
-                <p>{{ event.price }}</p>
-                <a href="{% url 'mainapp:download' id=event.id %}" download>Загрузить</a>
-            </div>
-        {% endfor %}
-    {% else %}
-        <div>
-            <p>У вас еще нет поездок!</p>
-        </div>
-    {% endif %}
-    {% if error %}
-        <p>{{ error }}</p>
-    {% endif %}
-<div id="add_tickets"><a href="{% url 'mainapp:add_trip' %}">Добавить поездку!</a></div>
+    <div>
+        <form action="{% url 'travelblog:process_add_post' %}" method="post">
+            {% csrf_token %}
+            <label for="title">Введите тему поста</label>
+            <input type="text" id="title" name="title">
+            <label for="post_text">Введите текст</label>
+            <textarea id="post_text" name="post_text"></textarea>
+            <input type="submit" value="Создать пост">
+        </form>
+    </div>
 </section>
 </main>
 <footer>
     <div><p>&copy Passepartout 2024</p></div>
-</footer>
-</body>
-</html>
