@@ -14,7 +14,7 @@
 <header>
     <ul>
         <li><a href="{% url 'firstapp:register' %}">Ваши билеиы</a></li>
-        <li><a href="{% url 'firstapp:authenticate' %}">Статистика и достижения</a></li>
+        <li><a href="{% url 'mainapp:statistics' %}">Статистика и достижения</a></li>
         <li><a href="{% url 'firstapp:logout' %}">Выйти</a></li>
     </ul>
 </header>
@@ -25,7 +25,8 @@
             <div>
                 <p>{{ event.date }}</p>
                 <p>{{ event.country }}</p>
-                <a href="{% url 'mainapp:download' %}"></a>
+                <p>{{ event.price }}</p>
+                <a href="{% url 'mainapp:download' id=event.id %}" download>Загрузить</a>
             </div>
         {% endfor %}
     {% else %}

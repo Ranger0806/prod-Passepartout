@@ -14,7 +14,7 @@
 <header>
     <ul>
         <li><a href="{% url 'firstapp:register' %}">Ваши билеиы</a></li>
-        <li><a href="{% url 'firstapp:authenticate' %}">Статистика и достижения</a></li>
+        <li><a href="{% url 'mainapp:statistics' %}">Статистика и достижения</a></li>
         <li><a href="{% url 'firstapp:logout' %}">Выйти</a></li>
     </ul>
 </header>
@@ -25,10 +25,16 @@
                 {% csrf_token %}
                 <label for="country">Введите страну</label>
                 <input name="country" type="text" id="country">
-                <label for="date">Введите дату</label>
-                <input type="date" id="date" name="date">
+                <label for="date_start">Введите дату начала</label>
+                <input type="date" id="date_start" name="date_start">
+                <label for="date_end">Введите дату окончания</label>
+                <input type="date" id="date_end" name="date_end">
+                <label for="price">Введите цену</label>
+                <input type="text" name="price" id="price">
+                <label for="trip_plan">Опишите план поедки</label>
+                <textarea name="trip_plan" id="trip_plan"></textarea>
                 <label for="file">Загрузите билет</label>
-                <input id="file" name="file" type="file">
+                <input id="file" name="file" type="file" accept="application/pdf">
                 <input type="submit" value="Создать">
             </form>
             {% if error %}
