@@ -12,6 +12,7 @@
     <p>Количество посещенных стран: {{ count_country }} </p>
     <p>Цена поездок в текущем месяце: {{ sum_price_month }}</p>
     <p>Колличество предстоящих поездок: {{ trips_count }}</p>
+    <p>Твоя ачивка: {{ achive }}</p>
     {% if later_trips %}
         <h2>Предстоящие поездки</h2>
         {% for trip in later_trips %}

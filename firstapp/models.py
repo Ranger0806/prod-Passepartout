@@ -8,7 +8,6 @@ class ProjectUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
     username = models.CharField(max_length=50, null=True)
     email = models.EmailField(unique=True)
-    countries = models.IntegerField(default=0)
 
     objects = CustomUserManager()
 
