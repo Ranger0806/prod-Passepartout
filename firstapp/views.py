@@ -56,6 +56,8 @@ def authentication_process(request):
         if user:
             login(request, user)
             return redirect('mainapp:main')
+        return redirect('firstapp:authenticate')
+
 
 
 def user_logout(request):
