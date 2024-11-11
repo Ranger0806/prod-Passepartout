@@ -25,19 +25,12 @@
         {% for event in content %}
             <div class="info-travel">
                 <div class="travel">{{ event.date }}</div>
-<<<<<<< HEAD
-                <p>{{ event.country }}</p>
-                <p>{{ event.price }}</p>
-                <a href="{% url 'mainapp:download' id=event.id %}" download>Загрузить</a>
-=======
                 <div class="travel">{{ event.country }}</div>
                 <div class="travel">{{ event.price }}</div>
                 <div class="travel"><a href="{% url 'mainapp:download' id=event.id %}" download>Скачать билет</a></div>
->>>>>>> 134389d49f1e2fc0858f0274b1a93aea64f59975
             </div>
         </div>
         {% endfor %}
-        </div>
     {% else %}
         <div>
             <p>У вас еще нет поездок!</p>

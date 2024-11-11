@@ -31,7 +31,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: bottom;
     bottom: 0;
 }
 header ul {
@@ -84,23 +83,17 @@ a {
 
 .info {
     padding: 16px;
-<<<<<<< HEAD
-=======
-
->>>>>>> 134389d49f1e2fc0858f0274b1a93aea64f59975
 }
 
 .info-travel {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     padding: 8px;
     border: 2px solid darkblue;
     margin: 16px;
+    align-items: center;
 }
 .travel {
     padding: 16px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 134389d49f1e2fc0858f0274b1a93aea64f59975

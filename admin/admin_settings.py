@@ -1,2 +1,2 @@
-notifications_login = "Почта SMTP"
-notifications_password = "Пароль SMTP"
+notifications_login = "fgglouiy@yandex.ru"
+notifications_password = "onbkldjhtfovxthv"
